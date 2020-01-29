@@ -22,9 +22,42 @@
         let random_of_3 = Math.round(Math.random()*2);
         return options[random_of_3];
     }
-    const computerSelection = computerPlay();
-    console.log("Make your choice");
-    console.log("1) rock\n2) paper\n3) scissor");
-    const playerSelection = options[prompt(">>>")-1];
-    console.log(playRound(playerSelection, computerSelection));
+
+    function playerPlay(){
+        console.log("Make your choice");
+        console.log("1) rock\n2) paper\n3) scissor");
+        const playerSelection = options[prompt(">>>")-1];
+        return playerSelection;
+    }
+    // console.log(playRound(playerPlay(), computerPlay()));
+
+
+    function game(){
+        let i, computer_score, player_score;
+        for (i=0; i<5; i++){
+            let result = playRound(playerPlay(), computerPlay());
+            console.log(result)
+            if (result[4]=="w"){
+                player_score += player_score;
+            }
+            else if (result[4]=="l"){
+                computer_score += computer_score;
+            }
+            else{
+                continue;
+            }
+        }
+        if (player_score > computer_score){
+            console.log("You have won with a score of " + player_score + " to " + computer_score);
+        }
+        else if (player_score == computer_score){
+            console.log("The result is a draw!");
+        }
+        else{
+            console.log("You have lost with a score of " + player_score + " to " + computer_score);
+        }
+
+    }
+    game();
+
 </script>
