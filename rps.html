@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<script>
+    let options = ['rock', 'paper', 'scissor'];
+    function playRound(playerSelection, computerSelection) {
+        if (computerSelection==playerSelection){
+            return ("Its a " + playerSelection + " draw!");
+        }
+        else if (playerSelection==options[0]&&computerSelection==options[2]){
+            return ("You win!, "+playerSelection+" beats "+computerSelection);
+        }
+        else if (playerSelection==options[1]&&computerSelection==options[0]){
+            return ("You win!, "+playerSelection+" beats "+computerSelection);
+        }
+        else if (playerSelection==options[2]&&computerSelection==options[1]){
+            return ("You win!, "+playerSelection+" beats "+computerSelection);
+        }
+        else{
+            return ("You lose!, "+computerSelection+" beats "+playerSelection);
+        }
+    }
+    function computerPlay(){
+        let random_of_3 = Math.round(Math.random()*2);
+        return options[random_of_3];
+    }
+    const computerSelection = computerPlay();
+    console.log("Make your choice");
+    console.log("1) rock\n2) paper\n3) scissor");
+    const playerSelection = options[prompt(">>>")-1];
+    console.log(playRound(playerSelection, computerSelection));
+</script>
